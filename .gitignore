@@ -1,0 +1,6 @@
+#Ignore files
+node_modules/
+access.log
+config/config.json
+bin/www
+ecosystem.config.js
