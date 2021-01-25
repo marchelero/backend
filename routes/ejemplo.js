@@ -11,5 +11,6 @@ router.get('/', function(req, res, next) {
 //Rutas para Simof
 router.get('/datos', ejemploController.list);
 router.get('/datos/:id', ejemploController.getById);
+router.get('/query', ejemploController.getByQuery);
 
 module.exports = router;

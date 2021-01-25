@@ -1,9 +1,9 @@
-const Ejemplos = require('../../models/ejemplo').ejemplo;
-const sequelize = Ejemplos.sequelize;
+const Ejemplo = require('../../models/ejemplo').ejemplo;
+const sequelize = Ejemplo.sequelize;
 
 module.exports = {
     list(req, res) {//console.log(req);
-        return Ejemplos
+        return Ejemplo
             .findAll({})
             .then((item) => res.status(200).send(item))
             .catch((error) => { res.status(400).send(error); });
@@ -11,7 +11,7 @@ module.exports = {
 
     getById(req, res) {
         console.log(req.params.id); //.findOne({id:req.params.id})
-        return Ejemplos
+        return Ejemplo
             .findByPk(req.params.id)
             .then((item) => {
                 console.log(item);
@@ -23,6 +23,24 @@ module.exports = {
                 return res.status(200).send(item);
             })
             .catch((error) => res.status(400).send(error));
+    },
+    async getByQuery(req,res){
+        try {
+            const ejemplo_query = `select * from dbEjemplo.ejemplo`;
+            let ejemplo = await sequelize.query(ejemplo_query, {
+                type: sequelize.QueryTypes.SELECT
+            }, {
+                raw: true
+            });
+            
+            res.status(200).send({
+                ejemplo
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(400).send({ 'msg': 'error', 'error': error.message });
+        }
+        
     },
     /*
     add(req, res) {

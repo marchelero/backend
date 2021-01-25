@@ -11,9 +11,19 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    return queryInterface.bulkInsert('ejemplos', [{
-      nombre: 'John',
-      detalle: 'Doe',
+    return queryInterface.bulkInsert('ejemplo', [{
+      nombre: 'Primer Nombre',
+      detalle: 'Primer Detalle',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      nombre: 'Segundo Nombre',
+      detalle: 'Segundo Detalle',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      nombre: 'Tercer Nombre',
+      detalle: 'Tercer Detalle',
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});
@@ -26,6 +36,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('ejemplos', null, {});
+    return queryInterface.bulkDelete('ejemplo', null, {});
   }
 };

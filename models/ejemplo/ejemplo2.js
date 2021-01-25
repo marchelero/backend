@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) =>  {
-	const  Ejemplo = sequelize.define('ejemplos', {
+	const  Ejemplo = sequelize.define('ejemplo', {
 		id: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) =>  {
 			field: 'detalle'
 		}
 	}, {
-		tableName: 'ejemplos',
+		tableName: 'ejemplo',
 		timestamps: false
 	});
 	return Ejemplo;
