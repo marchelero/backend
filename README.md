@@ -1,5 +1,55 @@
 ## API para Servicio de Reporte Logs
 
+### Pasos a seguir
+Para tener el backend correctamente funcionando se debe seguir los siguientes pasos:
+
+```
+git clone https://github.com/marchelero/backend.git
+```
+
+```
+mkdir backend
+```
+
+```
+npm install
+```
+
+y antes de ejecutar aseegurese de contar con la base de datos del proyecto, para este se cuenta con dos formas de obtener dicha BD.
+
+****La primera opcion es a traves de sequelize ejecutando los siguientes comandos:****
+
+*Creara una base de datos con el nombre que se encuentra en la carpeta config/config.js*
+
+```
+npx sequelize-cli db:create
+```
+*Creara las tablas dentro de la BD con la estructura tal cual este en la carpeta migrations*
+```
+npx sequelize-cli db:migrate
+```
+*Por ultimo, (solo si se requiere) llenara la BD con datos que se encuentren configurados en la semilla*
+
+```
+npx sequelize-cli db:seed:all
+```
+de esta manera se habra creado y llenado la BD correctamente y se puede proceder a iniciar 
+
+
+****La segunda opcion ejecutando el archivo ***database.sql*** ubicado enla carpeta db.****
+
+En caso de no utilizar sequelize se cuenta con un archivo sql que se debe ejecutar este mismo creara la BD y tabla correspondiente con contenido de ejemplo para su uso.
+
+****MUY IMPORTANTE**** 
+En caso de utilizar este segundo metodo se debe ir al path models/ejemplo/ y reemplazar el contenido del archivo ejemplo2.js por el que tiene por nombre ejemplo.js, ya que el archivo de ejemplo.js que viene por defecto en el repositorio fue creado por sequelize.
+
+Ahora el paso final para correr el proyecto es ejecutar el siguiente comando
+
+```
+npm run dev
+```
+de esta manera tendra el proyecto corriendo en http://localhost:3000/ejemplo
+
 ### Acerca del repositorio
 API, estructurado para propositos generales, es decir, servir datos a diferentes sistemas o subsistemas.
 
@@ -70,7 +120,7 @@ Generar los seeders
 - **name**, se recomienda que el nombre sea el mismo nombre de la tabla.
 
 ```
-sequelize seed:generate --name usuarios
+sequelize seed:generate --name ejemplo
 ```
 
 Ejecutar los seeders
@@ -262,8 +312,6 @@ En el controller se reciben en un array los nombres de los archivos con la sigui
 const files = req.files
 ```
 
-### Descargar o exportar archivos Excel o PDF 
-Pendiente
 
 
 
