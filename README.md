@@ -2,20 +2,20 @@
 
 ### Pasos a seguir
 Para tener el backend correctamente funcionando se debe seguir los siguientes pasos:
-
+Clonar el repositorio
 ```
 git clone https://github.com/marchelero/backend.git
 ```
-
+acceder a la carpeta con el mismo nombre
 ```
 mkdir backend
 ```
-
+instalar todas las dependencias
 ```
 npm install
 ```
 
-y antes de ejecutar aseegurese de contar con la base de datos del proyecto, para este se cuenta con dos formas de obtener dicha BD.
+y antes de ejecutar el comando para correr el proyecto asegurese de contar con la base de datos del mismo, para este se cuenta con dos formas de obtener dicha BD.
 
 ****La primera opcion es a traves de sequelize ejecutando los siguientes comandos:****
 
@@ -84,6 +84,16 @@ yarn start
 Instalar sequelize-cli
 ```
 npm install -g sequelize-cli
+```
+o
+```
+npm install --save-dev sequelize-cli
+```
+
+Iniciar el proyecto con sequelize
+
+```
+npx sequelize-cli init
 ```
 
 ### Configurar .sequelizerc
@@ -312,32 +322,3 @@ En el controller se reciben en un array los nombres de los archivos con la sigui
 const files = req.files
 ```
 
-
-
-
-
-
-Pasos a seguir
-
-
-
-npm install --save-dev sequelize-cli
-
-
-npx sequelize-cli init
-
-npx sequelize-cli model:generate --name ejemplo --attributes nombre:string,detalle:string
-
-npx sequelize-cli seed:generate --name ejemplo
-
-
-
-
-
-
-
-npx sequelize-cli db:create
-
-npx sequelize-cli db:migrate
-
-npx sequelize-cli db:seed:all
