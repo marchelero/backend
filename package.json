@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marchelero/backend.git"
+  },
+  "keywords": [
+    "Backend",
+    "Node.js",
+    "Express",
+    "Sequelize"
+  ],
+  "author": "Marcelo Albis Ortiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marchelero/backend/issues"
+  },
+  "homepage": "https://github.com/marchelero/backend#readme"
+}
