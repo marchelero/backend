@@ -4,8 +4,8 @@
   "description": "Backend Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "test": "nodemon app.js",
+    "start": "pm2 restart ecosystem.config.js --env production",
     "dev": "nodemon ./bin/www"
   },
   "repository": {
