@@ -1,0 +1,226 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "BACKEND API REST DOCUMENTATION",
+        "description": "Se describe el detalle de la API REST para consumo de servicios",
+        "license": {
+            "name": "Backend",
+            "url": ""
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [{
+        "name": "Ejemplos",
+        "description": "Obtener informacion detallada de Ejemplo"
+    }],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/ejemplo/datos/": {
+            "get": {
+                "tags": [
+                  "Ejemplos"
+                ],
+                "summary": "Returns ejemplos inventories by status",
+                "description": "Returns a map of status codes to quantities",
+                "operationId": "getEjemplos",
+                "produces": [
+                  "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    }
+                  }
+                },
+                "security": [
+                  {
+                    "api_key": []
+                  }
+                ]
+              }
+        },
+        "/ejemplo/data/{id}": {
+            "get": {
+                "tags": [
+                  "Ejemplos"
+                ],
+                "summary": "Returns pet inventories by status",
+                "description": "Returns a map of status codes to quantities",
+                "operationId": "getReporte",
+                "produces": [
+                  "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of report to return",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "integer",
+                        "format": "int32"
+                      }
+                    }
+                  }
+                },
+                "security": [
+                  {
+                    "api_key": []
+                  }
+                ]
+              },
+            "post": {
+                "tags": [
+                    "Ejemplos"
+                ],
+                "summary": "Add a new pet to the store",
+                "description": "",
+                "operationId": "addPet",
+                "consumes": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Pet object that needs to be added to the store",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/Reportes"
+                    }
+                }],
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "petstore_auth": [
+                        "write:pets",
+                        "read:pets"
+                    ]
+                }]
+            },
+            "put": {
+                "tags": [
+                  "Ejemplos"
+                ],
+                "summary": "Updated user",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "updateUser",
+                "produces": [
+                  "application/xml",
+                  "application/json"
+                ],
+                "parameters": [
+                  {
+                    "name": "username",
+                    "in": "path",
+                    "description": "name that need to be updated",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "in": "body",
+                    "name": "body",
+                    "description": "Updated user object",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/User"
+                    }
+                  }
+                ],
+                "responses": {
+                  "400": {
+                    "description": "Invalid user supplied"
+                  },
+                  "404": {
+                    "description": "User not found"
+                  }
+                }
+              },
+              "delete": {
+                "tags": [
+                  "Ejemplos"
+                ],
+                "summary": "Delete user",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "deleteUser",
+                "produces": [
+                  "application/xml",
+                  "application/json"
+                ],
+                "parameters": [
+                  {
+                    "name": "username",
+                    "in": "path",
+                    "description": "The name that needs to be deleted",
+                    "required": true,
+                    "type": "string"
+                  }
+                ],
+                "responses": {
+                  "400": {
+                    "description": "Invalid username supplied"
+                  },
+                  "404": {
+                    "description": "User not found"
+                  }
+                }
+              }
+        }
+    },
+    "definitions": {
+        "Ejemplos": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string",
+                    "format": "int64"
+                },
+                "detalle": {
+                    "type": "string",
+                    "format": "int32"
+                }
+            },
+            "xml": {
+                "name": "Ejemplos"
+            }
+        }
+    }
+}
