@@ -12,5 +12,7 @@ router.get('/', function(req, res, next) {
 router.get('/datos', ejemploController.list);
 router.get('/datos/:id', ejemploController.getById);
 router.get('/query', ejemploController.getByQuery);
-
+router.post('/datos', ejemploController.add);
+router.put('/datos/:id', ejemploController.update);
+router.delete('/datos/:id', ejemploController.delete);
 module.exports = router;

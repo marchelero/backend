@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   ejemplo.init({
+    id: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			primaryKey: true,
+			autoIncrement: true,
+		},
     nombre: DataTypes.STRING,
     detalle: DataTypes.STRING
   }, {
